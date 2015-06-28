@@ -48,11 +48,15 @@ router.get('/first', function(req, res, next) {
 });
 
 router.get('/second', function(req, res, next) {
-  unirest.get('http://api.themoviedb.org/3/genre/movie/list?api_key=' + process.env.MOVIEKEY)
+  unirest.get('http://api.themoviedb.org/3/person/popular?api_key=' + process.env.MOVIEKEY)
   .end(function (response) {
-
-  res.render('second');
-  });
+    var people = response.body.results;
+    var result = getRandomArrayValue(people)
+    console.log(result);
+  res.render('second', { result1: result[0],
+                         result2: result[1]
+                         });
+    });
 });
 
 
