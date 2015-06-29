@@ -1,15 +1,48 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
 }
 
 a {
   color: #00B7FF;
 }
 
-.title {
-  font-size: 64px;
-  font-family: 'Amatic SC';
+.title, .genre, .actorHeader, .thirdHeader {
+  font-size: 80px;
+  font-family: "Exo";
   font-style: normal;
   font-weight: 400;
+  text-align: center;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+
 }
+
+.informational {
+  font-size: 24px;;
+  text-align: center;
+  color: white;
+  display: inline-block;
+}
+
+/*.beginButton {
+  padding-left: 300px;
+}*/
+
+.topDiv {
+    height:100px;
+    width: 100%;
+    background-color: purple;
+    padding-top: none;
+    transform: rotate(15deg);
+    /*display: inline;*/
+
+}
+/*
+.leftDiv {
+  height: 600px;
+  width: 10%;
+  background-color: lightgrey;
+  display: inline-block;
+}*/
