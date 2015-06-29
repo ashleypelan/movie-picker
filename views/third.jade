@@ -1,4 +1,11 @@
 extends layout
 
 block content
-  h1.thirdHeader Last question not sure yet
+  h1.actorHeader Which actress/actor are you in the mood for?
+  div.peopleResults
+  p.leftImage
+  img(src="http://image.tmdb.org/t/p/w500" + result1.profile_path Onclick="window.location.href='/result'")
+  p.rightImage
+  img(src="http://image.tmdb.org/t/p/w500" + result2.profile_path result2.profile_path Onclick="window.location.href='/result'")
+  p.leftName #{result1.name}
+  p.rightName #{result2.name}

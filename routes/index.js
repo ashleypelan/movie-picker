@@ -96,9 +96,13 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.get('/first', function(req, res, next) {
+  res.render('first');
+});
+
 var genreSelected;
 
-router.get('/first', function(req, res, next) {
+router.get('/second', function(req, res, next) {
   unirest.get(baseURL + 'genre/movie/list?api_key=' + process.env.MOVIEKEY)
   .end(function (response) {
     var genres = response.body.genres;
@@ -106,7 +110,7 @@ router.get('/first', function(req, res, next) {
     var result = getRandomValuesFromArray(genres, 2);
     console.log(result);
 
-  res.render('first', { title: 'Express',
+  res.render('second', { title: 'Express',
                         result1: result[0],
                         result2: result[1]
                         });
@@ -114,7 +118,7 @@ router.get('/first', function(req, res, next) {
 });
 
 
-router.get('/second', function (req, res, next) {
+router.get('/third', function (req, res, next) {
   unirest.get(baseURL + 'person/popular?page=1&api_key=' + process.env.MOVIEKEY)
   .end(function (response1) {
 
@@ -126,6 +130,9 @@ router.get('/second', function (req, res, next) {
 
           unirest.get(baseURL + 'person/popular?page=4&api_key=' + process.env.MOVIEKEY)
           .end(function (response4) {
+
+            unirest.get(baseURL + 'person/popular?page=5&api_key=' + process.env.MOVIEKEY)
+            .end(function (response5) {
 
         var results1 = response1.body.results;
         var pic1 = response1.body.profile_path;
@@ -143,26 +150,29 @@ router.get('/second', function (req, res, next) {
               var pic4 = response4.body.profile_path;
               var randomValuesArray4 = getRandomValuesFromArray(results4, 2);
 
-          res.render('second', { title: 'Express',
+              var results5 = response4.body.results;
+              var pic5 = response4.body.profile_path;
+              var randomValuesArray5 = getRandomValuesFromArray(results5, 2);
+
+          res.render('third', { title: 'Express',
                                 result1: randomValuesArray[0],
                                 result2: randomValuesArray2[1],
                                 results3: randomValuesArray3[2],
                                 results4: randomValuesArray4[3],
+                                results5: randomValuesArray5[4],
                                 pic1: randomValuesArray[0],
                                 pic2: randomValuesArray[1],
                                 pic3: randomValuesArray[2],
-                                pic4: randomValuesArray[3]
+                                pic4: randomValuesArray[3],
+                                pic5: randomValuesArray[3]
                                 });
+          });
         });
       });
     });
   });
 });
 
-
-router.get('/third', function(req, res, next){
-  res.render('third');
-});
 
 router.get('/result', function(req, res, next){
   res.render('result');

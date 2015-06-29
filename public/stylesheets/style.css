@@ -7,16 +7,14 @@ a {
   color: #00B7FF;
 }
 
-.title, .genre, .actorHeader, .thirdHeader {
-  font-size: 80px;
+.title, .genre, .actorHeader, .thirdHeader, h1 {
+  font-size: 60px;
   font-family: "Exo";
   font-style: normal;
   font-weight: 400;
   text-align: center;
   color: white;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-
-
 }
 
 .informational {
@@ -30,17 +28,62 @@ a {
   padding-left: 300px;
 }*/
 
+.genreResults1 {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30%;
+}
+
+.genreResults2 {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30%;
+}
+
 .topDiv {
     height:100px;
     width: 100%;
     background-color: purple;
     padding-top: none;
     transform: rotate(15deg);
-    /*display: inline;*/
-
 }
-/*
-.leftDiv {
+
+.leftImage {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10%;
+}
+
+.leftName {
+  font-size: 30px;
+  color: white;
+  width: 50%;
+  float: left;
+  text-align: center;
+  display: inline-block;
+}
+
+.rightImage {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5%;
+}
+
+.rightName {
+  font-size: 30px;
+  color: white;
+  width: 50%;
+  float: left;
+  text-align: center;
+  display: inline-block;
+}
+
+
+/*.leftDiv {
   height: 600px;
   width: 10%;
   background-color: lightgrey;
