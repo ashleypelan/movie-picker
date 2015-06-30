@@ -88,7 +88,7 @@ router.post('/second', function(req, res, next) {
 });
 
 router.get('/third', function (req, res, next) {
-  var actorSelected = req.cookies.actorSelected;
+  var actorSelected = req.cookies.actorName;
 
   unirest.get(baseURL + 'person/popular?page=1&api_key=' + process.env.MOVIEKEY)
   .end(function (response1) {
@@ -159,7 +159,7 @@ router.get('/third', function (req, res, next) {
 });
 
 router.post('/third', function(req, res, next) {
-  res.cookie('actorSelected', req.body.actorSelected);
+  res.cookie('actorSelected', req.body.actorName);
   res.redirect('/result');
 });
 

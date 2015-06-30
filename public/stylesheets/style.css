@@ -1,6 +1,7 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: black;
+  /*display: inline-block;*/
 }
 
 a {
@@ -12,7 +13,7 @@ label {
 }
 
 .genre, .actorHeader, .thirdHeader, h1 {
-  font-size: 80px;
+  font-size: 50px;
   font-family: "Exo";
   font-style: normal;
   font-weight: 400;
@@ -25,17 +26,16 @@ label {
   font-size: 100px;
   font-family: "Exo";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 450;
   text-align: center;
   color: white;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
   display: inline-block;
   position: absolute;
   z-index: 100;
   top: 0px;
   left: 50px;
 }
-
 
 .movieReel {
   transform: rotate(180deg);
@@ -44,17 +44,32 @@ label {
   top: 0px;
 }
 
-p {
-  font-size: 30px;
-  text-align: center;
+.informational {
+  font-size: 23px;
   color: white;
   display: inline-block;
   z-index: 100;
+  line-height: 750px;
+  left: 60%;
+  padding-left: 16%;
 }
 
-/*.beginButton {
-  padding-left: 300px;
-}*/
+.beginButton {
+  display: inline-block;
+  width: 300px;
+  height: 100px;
+  background: hsl(300, 100%, 27%);
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  border-radius: 20px;
+  border-color: hsl(300, 25%, 25%);
+  position: absolute;
+  top: 75%;
+  left: 38%;
+  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+}
 
 .genreResults1 {
   display: inline-block;
@@ -76,6 +91,54 @@ p {
     background-color: rgb(102, 0, 102);
     padding-top: none;
     transform: rotate(15deg);
+}
+
+.leftDiv {
+  /*height:100px;
+  width: 100%;
+  background-color: rgb(102, 0, 102);
+  padding-top: none;
+  transform: rotate(50deg);*/
+}
+
+.clock {
+  display: inline-block;
+  position: absolute;
+  top: 160px;
+  left: 35%;
+}
+
+.left {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10%;
+  font-size: 24px;
+}
+
+.right {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 45%;
+  font-size: 24px;
+}
+
+.timeButton {
+  display: inline-block;
+  width: 300px;
+  height: 100px;
+  background: hsl(300, 100%, 27%);
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  border-radius: 20px;
+  border-color: hsl(300, 25%, 25%);
+  position: absolute;
+  top: 80%;
+  left: 38.2%;
+  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
 }
 
 .leftImage {
@@ -109,11 +172,3 @@ p {
   text-align: center;
   display: inline-block;
 }
-
-
-/*.leftDiv {
-  height: 600px;
-  width: 10%;
-  background-color: lightgrey;
-  display: inline-block;
-}*/
