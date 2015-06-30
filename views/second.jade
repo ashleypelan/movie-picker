@@ -2,8 +2,12 @@ extends layout
 
 block content
   h1.genre What genre are you feelin'?
-  div.genreResults1
-    input(type="submit" value=result1.name Onclick="window.location.href='/third'")= result1.name
-  div.genreResults2
-    p
-    input(type="submit" value=result2.name Onclick="window.location.href='/third'")= result2.name
+  form(action="/second" method="post")
+    div.genreResults1
+      label= result1.name
+      input(type="radio" value=result1.name name="genreSelected")= result1.name
+    div.genreResults2
+      p
+      label= result2.name
+      input(type="radio" value=result2.name name="genreSelected")= result2.name
+    input(type="submit")

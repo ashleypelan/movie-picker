@@ -7,8 +7,12 @@ a {
   color: #00B7FF;
 }
 
-.title, .genre, .actorHeader, .thirdHeader, h1 {
-  font-size: 60px;
+label {
+  color: white;
+}
+
+.genre, .actorHeader, .thirdHeader, h1 {
+  font-size: 80px;
   font-family: "Exo";
   font-style: normal;
   font-weight: 400;
@@ -17,11 +21,35 @@ a {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.informational {
-  font-size: 24px;;
+.title {
+  font-size: 100px;
+  font-family: "Exo";
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  display: inline-block;
+  position: absolute;
+  z-index: 100;
+  top: 0px;
+  left: 50px;
+}
+
+
+.movieReel {
+  transform: rotate(180deg);
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+}
+
+p {
+  font-size: 30px;
   text-align: center;
   color: white;
   display: inline-block;
+  z-index: 100;
 }
 
 /*.beginButton {
@@ -45,7 +73,7 @@ a {
 .topDiv {
     height:100px;
     width: 100%;
-    background-color: purple;
+    background-color: rgb(102, 0, 102);
     padding-top: none;
     transform: rotate(15deg);
 }

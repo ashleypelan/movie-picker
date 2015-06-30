@@ -2,7 +2,11 @@ extends layout
 
 block content
   h1 How much time do you have to spare?
-  div.120orLess
-    input(type="submit" value= "Less than 2 hours" Onclick="window.location.href='/second'")
-  div.120orMore
-    input(type="submit" value= "More than 2 hours" Onclick="window.location.href='/second'")
+  form(action="/first" method="post")
+    div.120orLess
+      label less than 2 hours 
+      input(type="radio" value= "> 2 hours" name="runtime")
+    div.120orMore
+      label more than 2 hours
+      input(type="radio" value= "< 2 hours" name="runtime")
+    input(type="submit")

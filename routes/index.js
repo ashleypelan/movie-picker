@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var unirest = require('unirest');
-
-var baseURL = 'http://api.themoviedb.org/3/'
+var baseURL = 'http://api.themoviedb.org/3/';
 
 
 function getRandomInt(min, max) {
@@ -11,8 +10,6 @@ function getRandomInt(min, max) {
 
 function getRandomInts(min, max, numberOfInts) {
   var randomIntsArray = [];
-
-
   var maxNumberOfIntsAllowed;
    if (min == 0) {
      maxNumberOfIntsAllowed = max + 1;
@@ -24,14 +21,12 @@ function getRandomInts(min, max, numberOfInts) {
     throw(err);
   }
 
-
   while (randomIntsArray.length < numberOfInts) {
     var randomInt = getRandomInt(min, max);
     if (randomIntsArray.indexOf(randomInt) == -1) {
       randomIntsArray.push(randomInt);
     }
   }
-
   return randomIntsArray;
 }
 
@@ -39,7 +34,6 @@ function getRandomInts(min, max, numberOfInts) {
 function getRandomValuesFromArray(array, numberOfValues) {
 
   var randomIntsArray = getRandomInts(0, array.length - 1, numberOfValues);
-
   var randomValuesArray = [];
 
   for (var i = 0; i < randomIntsArray.length; i++) {
@@ -47,62 +41,33 @@ function getRandomValuesFromArray(array, numberOfValues) {
       var arrayValue = array[randomInt];
       randomValuesArray.push(arrayValue);
   }
-
   return randomValuesArray;
 }
 
-function testFunction(name){
-  console.log("some crazy shit " + name);
-  console.log("************");
-  console.log("************");
-
-}
-
-
-
-// function getRandomValuesFromArray(array, numberOfValues) {
-//
-//   var randomValuesArray = [];
-//
-//   if (numberOfValues > array.length) {
-//     var err = "Error: numberOfValues can't be larger than array.length.";
-//     throw(err);
-//   }
-//
-//   while (randomValuesArray.length < numberOfValues) {
-//     var randomNumber = getRandomInt(0, array.length - 1);
-//     var arrayValue = array[randomNumber];
-//     if (randomValuesArray.indexOf(arrayValue) == -1) {
-//       randomValuesArray.push(arrayValue);
-//     }
-//   }
-//
-//   return randomValuesArray;
-// }
-
-// function getRandomArrayValue(array) {
-//   var randomNumber1 = getRandomInt(0, array.length -1);
-//   var randomNumber2 = getRandomInt(0, array.length -1);
-//   var arrayValue1 = array[randomNumber1];
-//   var arrayValue2 = array[randomNumber2];
-//   var resultArray = [arrayValue1, arrayValue2];
-//   if (arrayValue1 === arrayValue2) {
-//   return getRandomArrayValue(array);
-//   }
-//   return resultArray;
-// }
-
 router.get('/', function(req, res, next) {
   res.render('index');
+
 });
 
 router.get('/first', function(req, res, next) {
+  var timeRangeSelected = req.cookies.runtime;
+  console.log(timeRangeSelected);
+  unirest.get(baseURL + 'movie/100?api_key=' + process.env.MOVIEKEY)
+  .end(function (response) {
+    var movieRuntime = response.body.runtime;
+    // console.log(movieRuntime);
   res.render('first');
+  });
 });
 
-var genreSelected;
+router.post('/first', function(req, res, next) {
+  res.cookie('runtime', req.body.runtime);
+  res.redirect('/second');
+});
 
 router.get('/second', function(req, res, next) {
+  var genreSelected = req.cookies.genreSelected;
+  console.log(req.cookies.runtime);
   unirest.get(baseURL + 'genre/movie/list?api_key=' + process.env.MOVIEKEY)
   .end(function (response) {
     var genres = response.body.genres;
@@ -117,8 +82,14 @@ router.get('/second', function(req, res, next) {
     });
 });
 
+router.post('/second', function(req, res, next) {
+  res.cookie('genreSelected', req.body.genreSelected);
+  res.redirect('/third');
+});
 
 router.get('/third', function (req, res, next) {
+  var actorSelected = req.cookies.actorSelected;
+
   unirest.get(baseURL + 'person/popular?page=1&api_key=' + process.env.MOVIEKEY)
   .end(function (response1) {
 
@@ -134,38 +105,52 @@ router.get('/third', function (req, res, next) {
             unirest.get(baseURL + 'person/popular?page=5&api_key=' + process.env.MOVIEKEY)
             .end(function (response5) {
 
-        var results1 = response1.body.results;
-        var pic1 = response1.body.profile_path;
-        var randomValuesArray = getRandomValuesFromArray(results1, 2);
+              unirest.get(baseURL + 'person/popular?page=6&api_key=' + process.env.MOVIEKEY)
+              .end(function (response6) {
 
-          var results2 = response2.body.results;
-          var pic2 = response2.body.profile_path;
-          var randomValuesArray2 = getRandomValuesFromArray(results2, 2);
+        console.log(response4);
 
-            var results3 = response3.body.results;
-            var pic3 = response3.body.profile_path;
-            var randomValuesArray3 = getRandomValuesFromArray(results3, 2);
+      var result1 = response1.body.results;
+      var pic1 = response1.body.profile_path;
+      var randomValuesArray = getRandomValuesFromArray(result1, 2);
 
-              var results4 = response4.body.results;
-              var pic4 = response4.body.profile_path;
-              var randomValuesArray4 = getRandomValuesFromArray(results4, 2);
+        var result2 = response2.body.results;
+        var pic2 = response2.body.profile_path;
+        var randomValuesArray2 = getRandomValuesFromArray(result2, 2);
 
-              var results5 = response4.body.results;
-              var pic5 = response4.body.profile_path;
+          var results3 = response3.body.results;
+          var pic3 = response3.body.profile_path;
+          var randomValuesArray3 = getRandomValuesFromArray(results3, 2);
+
+            var results4 = response4.body.results;
+            var pic4 = response4.body.profile_path;
+            var randomValuesArray4 = getRandomValuesFromArray(results4, 2);
+
+              var results5 = response5.body.results;
+              var pic5 = response5.body.profile_path;
               var randomValuesArray5 = getRandomValuesFromArray(results5, 2);
 
-          res.render('third', { title: 'Express',
-                                result1: randomValuesArray[0],
-                                result2: randomValuesArray2[1],
-                                results3: randomValuesArray3[2],
-                                results4: randomValuesArray4[3],
-                                results5: randomValuesArray5[4],
-                                pic1: randomValuesArray[0],
-                                pic2: randomValuesArray[1],
-                                pic3: randomValuesArray[2],
-                                pic4: randomValuesArray[3],
-                                pic5: randomValuesArray[3]
-                                });
+                var results6 = response6.body.results;
+                var pic6 = response6.body.profile_path;
+                var randomValuesArray6 = getRandomValuesFromArray(results6, 2);
+
+                console.log(response6);
+
+  res.render('third', { title: 'Express',
+                        result1: randomValuesArray[0],
+                        result2: randomValuesArray2[1],
+                        results3: randomValuesArray3[2],
+                        results4: randomValuesArray4[3],
+                        results5: randomValuesArray5[4],
+                        results6: randomValuesArray6[5],
+                        pic1: randomValuesArray[0],
+                        pic2: randomValuesArray[1],
+                        pic3: randomValuesArray[2],
+                        pic4: randomValuesArray[3],
+                        pic5: randomValuesArray[4],
+                        pic6: randomValuesArray[5]
+                        });
+            });
           });
         });
       });
@@ -173,17 +158,30 @@ router.get('/third', function (req, res, next) {
   });
 });
 
+router.post('/third', function(req, res, next) {
+  res.cookie('actorSelected', req.body.actorSelected);
+  res.redirect('/result');
+});
+
 
 router.get('/result', function(req, res, next){
   res.render('result');
 });
 
+  //do stuff here to combine all of users choices to display movies that fit into what they chose
+
+//   res.render('result', {timeRangeSelected : timeRangeSelected,
+//                         genreSelected : genreSelected,
+//                         actorSelected : actorSelected
+//   });
+// });
+//
+// router.get('/thanks', function(req, res, next) {
+//
+//     res.redirect('/');
+// });
+
 
 
 
 module.exports = router;
-
-
-//get list of movies from database
-//randomize the movie
-//then insert random variable into unires.get('https://..... mumbojumbo where "/550" is
