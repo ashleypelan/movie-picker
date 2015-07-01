@@ -4,10 +4,11 @@ block content
   h1.genre What genre are you feelin'?
   form(action="/second" method="post")
     div.genreResults1
-      label= result1.name
-      input(type="radio" value=result1.name name="genreSelected")= result1.name
+      label(for="leftRadio")= result1.name
+      input(type="radio" value=result1.id name="genreSelected" id="leftRadio")= result1.name
+    img.popcorn(src="../pictures/popcorn.png" height="400px" width="400px")
     div.genreResults2
       p
-      label= result2.name
-      input(type="radio" value=result2.name name="genreSelected")= result2.name
-    input(type="submit")
+      label(for="rightRadio")= result2.name
+      input(type="radio" value=result2.id name="genreSelected" id="rightRadio")= result2.name
+    input.genreButton(type="submit")
