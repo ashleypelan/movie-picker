@@ -7,6 +7,10 @@ a {
   color: #00B7FF;
 }
 
+p {
+  color: white;
+}
+
 label {
   color: white;
 }
@@ -92,7 +96,7 @@ label {
   display: inline-block;
   width: 300px;
   height: 100px;
-  background: hsl(270, 83%, 18%);
+  background: hsl(271, 68%, 32%);
   text-align: center;
   color: white;
   font-weight: bold;
@@ -128,31 +132,42 @@ label {
 .clock {
   display: inline-block;
   position: absolute;
-  top: 160px;
   left: 35%;
 }
 
 .left {
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
   padding-left: 10%;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .right {
   display: inline-block;
+  font-size: 28px;
+  padding-left: 600px;
+}
+
+.genreResults1 {
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 45%;
-  font-size: 24px;
+  padding-left: 10%;
+  font-size: 28px;
+}
+
+.genreResults2 {
+  display: inline-block;
+  top: 200px;
+  /*left: 900px;*/
+  padding-left: 60%;
+  font-size: 28px;
 }
 
 .timeButton {
   display: inline-block;
   width: 300px;
   height: 100px;
-  background: hsl(300, 100%, 27%);
+  background: hsl(271, 68%, 32%);
   text-align: center;
   color: white;
   font-weight: bold;
@@ -162,6 +177,23 @@ label {
   position: absolute;
   top: 80%;
   left: 38.2%;
+  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+}
+
+.goBackToStart {
+  display: inline-block;
+  width: 300px;
+  height: 100px;
+  background: hsl(271, 68%, 32%);
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  border-radius: 20px;
+  border-color: hsl(300, 25%, 25%);
+  position: absolute;
+  top: 100%;
+  left: 60%;
   text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
 }
 
@@ -204,6 +236,23 @@ label {
   position: absolute;
   top: 160px;
   left: 35%;
+}
+
+.movie {
+  display: inline-block;
+  padding-left: 5%;
+}
+
+.movieOverview {
+  color: white;
+  position: relative;
+  top: 100px;
+  right: 100px;
+  float: right;
+  width: 50%;
+  /*height: 500px;*/
+  font-size: 24px;
+  top: -600px;
 }
 
 .actorButton {

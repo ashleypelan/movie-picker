@@ -122,7 +122,7 @@ router.post('/second', function(req, res, next) {
 });
 
 router.get('/third', function (req, res, next) {
-  var randomNumbers = getRandomInts(1, 50, 2)
+  var randomNumbers = getRandomInts(1, 40, 2)
   // var random = Math.floor(Math.random() * 30);
 
   unirest.get(baseURL + 'person/popular?page=' + randomNumbers[0] + '&api_key=' + process.env.MOVIEKEY)
@@ -175,6 +175,7 @@ router.get('/result', function(req, res, next){
     unirest.get(baseURL + 'discover/movie?with_cast=' + actorSelected + '&api_key=' + process.env.MOVIEKEY)
     .end(function (response) {
       var getMoviesByActor = response.body.results;
+      // console.log(getMoviesByActor);
       var arrayOfMovieDeets = [];
       for (var i = 0; i < getMoviesByActor.length; i++) {
 
@@ -182,57 +183,45 @@ router.get('/result', function(req, res, next){
           genre_ids: getMoviesByActor[i].genre_ids,
           overview : getMoviesByActor[i].overview,
           title : getMoviesByActor[i].title,
-          name : getMoviesByActor[i].name,
+          // name : getMoviesByActor[i].name,
           poster_path : getMoviesByActor[i].poster_path
           }
 
         arrayOfMovieDeets.push(blankObjectWithMovieDeets);
 
-
-
       }
-
-      var genre_idsArray = []
       var genresMatchingGenreSelectedArray = []
 
-      for (var j = 0; j < genre_idsArray.length; j++) {
-        genre_idsArray.push(blankObjectWithMovieDeets.genre_ids[i]);
+      for (var i = 0; i < arrayOfMovieDeets.length; i++) {
+        var genre_idsArray = arrayOfMovieDeets[i].genre_ids;
+        for (var j = 0; j < genre_idsArray.length; j++) {
+          if (genre_idsArray[j] == genreSelected) {
 
-        if (blankObjectWithMovieDeets.genre_ids[i] === genreSelected) {
-          genresMatchingGenreSelectedArray.push(blankObjectWithMovieDeets)
+          genresMatchingGenreSelectedArray.push(arrayOfMovieDeets[i])
 
         }
       }
-      console.log(blankObjectWithMovieDeets.genre_ids[0]);
-
-                // console.log(genre_idsArray);
-                // console.log(genresMatchingGenreSelectedArray);
-                //
+    }
 
 
+    var movieSuggested = genresMatchingGenreSelectedArray[Math.floor(Math.random() * genresMatchingGenreSelectedArray.length)];
 
-
-
-
-      // console.log(blankObjectWithMovieDeets.genre_ids[0]);
-      // console.log(blankObjectWithMovieDeets.genre_ids[1]);
-
-
-//genre_ids is an object of an array of genres
-//get into the object and iterate through the array to search if the genre_id chosen matches any of the ones from actor chosen
+    // console.log(movieSuggested);
+    // console.log(genresMatchingGenreSelectedArray);
+//run random function set it equal to new variable movieSuggested res.render movieSuggested into the render page below
 
   res.render('result', {
-
-                        //  actorSelected : actorSelected
+                         poster : movieSuggested.poster_path,
+                         titleOfMovie : movieSuggested.title,
+                         overviewOfMovie : movieSuggested.overview
                         });
-
 
   });
 });
 
-router.get('/thanks', function(req, res, next) {
+router.post('/result', function(req, res, next) {
 
-    res.redirect('/');
+    res.redirect('/first');
 });
 
 

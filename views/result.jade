@@ -1,7 +1,9 @@
 extends layout
 
 block content
-  h1 Movie result shown here
-  p #{timeRangeSelected}
-  p #{genreSelected}
-  p #{actorSelected}
+  h1 Try watching this!
+  img.movie(src="http://image.tmdb.org/t/p/w500" + poster + 'api_key=' + process.env.MOVIEKEY)
+  //- p.movieTitle= titleOfMovie
+  p.movieOverview= overviewOfMovie
+  form(action="/first" method="get")
+  input.goBackToStart(type="submit" value="Try Again!" onclick="window.location.href='/first'")

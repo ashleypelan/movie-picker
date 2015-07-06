@@ -4,9 +4,9 @@ block content
   h1.actorHeader Which actress/actor are you in the mood for?
   div.peopleResults
   p.leftImage
-  img(src="http://image.tmdb.org/t/p/w300" + result1.profile_path Onclick="window.location.href='/result'")
+  img(src="http://image.tmdb.org/t/p/w300" + result1.profile_path)
   p.rightImage
-  img(src="http://image.tmdb.org/t/p/w300" + result2.profile_path result2.profile_path Onclick="window.location.href='/result'")
+  img(src="http://image.tmdb.org/t/p/w300" + result2.profile_path result2.profile_path)
   form(method="post" action"/third")
     div.leftName
       label(for="leftName")= result1.name
@@ -15,4 +15,3 @@ block content
       label(for="rightName")= result2.name
       input(type="radio" value=result2.id name="actorName" id="rightName")= result2.name
       input.actorButton(type="submit")
-      
