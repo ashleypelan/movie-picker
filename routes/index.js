@@ -3,41 +3,8 @@ var router = express.Router();
 var unirest = require('unirest');
 require('dotenv').load();
 var db = require('monk')("localhost/movies");
-// var actorsDB = require('monk')'localhost/actors_demo');
 var movieCollection = db.get('movies');
-// var actorsMovieCollection = db.get('actorsMovies');
 var baseURL = 'http://api.themoviedb.org/3/';
-
-
-//make for loop to push all movies in 1000 pages into the movies demo DB
-//save actor ID that they selected and then search with_cast in the movies datatbase for person in that movie
-//save genre ID that they selected and then search those movies for the genre id
-//try and generate this with movie title, movie poster, and summary of movie
-// var movieArray = [];
-// //did page 230 accidentally & 560
-// // for (var i = 0; i < 1000; i++) {
-//   unirest.get(baseURL + "movie/popular?page=200" + '&api_key=' + process.env.MOVIEKEY)
-//     .end(function (response) {
-//
-//       movieArray = response.body.results;
-//
-//       for (j=0; j < movieArray.length; j++) {
-//         // var movie = movieArray[i];
-//         console.log("*************");
-//         console.log("*************");
-//         console.log(movieArray[j].id);
-//         console.log([j]);
-//         console.log("*************");
-//         console.log("*************");
-//         movieCollection.insert({ movieID: movieArray[j].id,
-//                                      title: movieArray[j].title,
-//                                      overview: movieArray[j].overview,
-//                                      genres: movieArray[j].genre_ids
-//                                   });
-//       }
-//     });
-//   // }
-
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -65,7 +32,6 @@ function getRandomInts(min, max, numberOfInts) {
   return randomIntsArray;
 }
 
-
 function getRandomValuesFromArray(array, numberOfValues) {
 
   var randomIntsArray = getRandomInts(0, array.length - 1, numberOfValues);
@@ -85,12 +51,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/first', function(req, res, next) {
-  // var timeRangeSelected = req.cookies.runtime;
-  // console.log(timeRangeSelected);
   unirest.get(baseURL + 'movie/100?api_key=' + process.env.MOVIEKEY)
   .end(function (response) {
-    // var movieRuntime = response.body.runtime;
-    // console.log(movieRuntime);
   res.render('first');
   });
 });
@@ -104,11 +66,8 @@ router.get('/second', function(req, res, next) {
   unirest.get(baseURL + 'genre/movie/list?api_key=' + process.env.MOVIEKEY)
   .end(function (response) {
     var genres = response.body.genres;
-    // console.log(genres);
     var result = getRandomValuesFromArray(genres, 2);
-    // console.log(result);
-    // console.log(result[0]);
-    // console.log(result[1]);
+
   res.render('second', { title: 'Express',
                          result1: result[0],
                          result2: result[1]
@@ -123,7 +82,6 @@ router.post('/second', function(req, res, next) {
 
 router.get('/third', function (req, res, next) {
   var randomNumbers = getRandomInts(1, 40, 2)
-  // var random = Math.floor(Math.random() * 30);
 
   unirest.get(baseURL + 'person/popular?page=' + randomNumbers[0] + '&api_key=' + process.env.MOVIEKEY)
   .end(function (response1) {
@@ -134,20 +92,12 @@ router.get('/third', function (req, res, next) {
       var result1 = response1.body.results;
       var pic1 = response1.body.profile_path;
       var randomValuesArray = getRandomValuesFromArray(result1, 1);
-      // console.log(randomValuesArray[0].id);
       var result1 = randomValuesArray[0];
-      // console.log(result1.id);
-      // console.log(randomValuesArray);
 
         var result2 = response2.body.results;
         var pic2 = response2.body.profile_path;
         var randomValuesArray2 = getRandomValuesFromArray(result2, 1);
         var result2 = randomValuesArray2[0];
-        // console.log(result2.id);
-
-
-          // console.log(response1);
-          // console.log(response2);
 
   res.render('third', { title: 'Express',
                         result1: randomValuesArray[0],
@@ -168,14 +118,11 @@ router.post('/third', function(req, res, next) {
 
 router.get('/result', function(req, res, next){
   var genreSelected = req.cookies.genreSelected;
-  // console.log(genreSelected);
   var actorSelected = req.cookies.actorSelected;
-  // console.log(actorSelected);
 
     unirest.get(baseURL + 'discover/movie?with_cast=' + actorSelected + '&api_key=' + process.env.MOVIEKEY)
     .end(function (response) {
       var getMoviesByActor = response.body.results;
-      // console.log(getMoviesByActor);
       var arrayOfMovieDeets = [];
       for (var i = 0; i < getMoviesByActor.length; i++) {
 
@@ -183,7 +130,6 @@ router.get('/result', function(req, res, next){
           genre_ids: getMoviesByActor[i].genre_ids,
           overview : getMoviesByActor[i].overview,
           title : getMoviesByActor[i].title,
-          // name : getMoviesByActor[i].name,
           poster_path : getMoviesByActor[i].poster_path
           }
 
@@ -203,12 +149,7 @@ router.get('/result', function(req, res, next){
       }
     }
 
-
     var movieSuggested = genresMatchingGenreSelectedArray[Math.floor(Math.random() * genresMatchingGenreSelectedArray.length)];
-
-    // console.log(movieSuggested);
-    // console.log(genresMatchingGenreSelectedArray);
-//run random function set it equal to new variable movieSuggested res.render movieSuggested into the render page below
 
   res.render('result', {
                          poster : movieSuggested.poster_path,
@@ -223,8 +164,5 @@ router.post('/result', function(req, res, next) {
 
     res.redirect('/first');
 });
-
-
-
 
 module.exports = router;
