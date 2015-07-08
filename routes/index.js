@@ -152,9 +152,16 @@ router.get('/result', function(req, res, next){
     var movieSuggested = genresMatchingGenreSelectedArray[Math.floor(Math.random() * genresMatchingGenreSelectedArray.length)];
 
 //add page and logic here to render a no result matches your choices page
+//add ^^^ jade page
 //fix so you can't submit before selecting a radio button on all jade pages
 //add tv show or movie as the first question
 //go through and make new tv routes
+//add ^^^ jade pages
+//edit the time question to work or just get rid of it
+//make css look less 80's
+//make login area/page/DB
+//make list area where users can add tv/movies to watch later
+//^^^ get from API/list making route thang
 
   res.render('result', {
                          poster : movieSuggested.poster_path,
