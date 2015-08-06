@@ -3,6 +3,7 @@ extends layout
 block content
   h1 Try watching this!
   img.movie(src="http://image.tmdb.org/t/p/w500" + poster + 'api_key=' + process.env.MOVIEKEY)
+  //p.moviePoster= moviePoster
   //- p.movieTitle= titleOfMovie
   p.movieOverview= overviewOfMovie
   form(action="/first" method="get")
