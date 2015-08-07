@@ -111,7 +111,6 @@ router.get('/third', function (req, res, next) {
 });
 
 router.post('/third', function(req, res, next) {
-
   res.cookie('actorSelected', req.body.actorName);
   res.redirect('/result');
 });
@@ -144,7 +143,6 @@ router.get('/result', function(req, res, next){
           if (genre_idsArray[j] == genreSelected) {
 
           genresMatchingGenreSelectedArray.push(arrayOfMovieDeets[i])
-
         }
       }
     }
@@ -168,12 +166,10 @@ router.get('/result', function(req, res, next){
                          titleOfMovie : movieSuggested.title,
                          overviewOfMovie : movieSuggested.overview
                         });
-
   });
 });
 
 router.post('/result', function(req, res, next) {
-
     res.redirect('/first');
 });
 
