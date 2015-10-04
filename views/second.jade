@@ -5,7 +5,7 @@ block content
   form(action="/second" method="post")
     div.genreResults1
       label(for="leftRadio")= result1.name
-      input(type="radio" value=result1.id name="genreSelected" id="leftRadio")= result1.name
+      input(type="radio" value=result1.id name="genreSelected" id="leftRadio" checked="leftRadio")= result1.name
     img.popcorn(src="../pictures/popcorn.png" height="350px" width="350px")
     div.genreResults2
       p

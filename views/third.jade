@@ -10,7 +10,7 @@ block content
   form(method="post" action"/third")
     div.leftName
       label(for="leftName")= result1.name
-      input(type="radio" value=result1.id name="actorName" id="leftName")= result1.name
+      input(type="radio" value=result1.id name="actorName" id="leftName" checked="leftName")= result1.name
     div.rightName
       label(for="rightName")= result2.name
       input(type="radio" value=result2.id name="actorName" id="rightName")= result2.name

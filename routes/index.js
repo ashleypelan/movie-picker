@@ -45,6 +45,14 @@ function getRandomValuesFromArray(array, numberOfValues) {
   return randomValuesArray;
 }
 
+function noResult(result) {
+  var errorArray = [];
+  if (no result) {
+    "No results match your choices. Retry!".push(errorArray)
+  }
+  return errorArray;
+}
+
 router.get('/', function(req, res, next) {
   res.render('index');
 

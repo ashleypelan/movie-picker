@@ -3,10 +3,9 @@ extends layout
 block content
   h1 Try watching this!
   img.movie(src="http://image.tmdb.org/t/p/w500" + poster + 'api_key=' + process.env.MOVIEKEY)
-  //p.moviePoster= moviePoster
-  //- p.movieTitle= titleOfMovie
   div.overviewMovieDiv
+    input(type="button" onClick="history.go(0)" value="Reroll" class="reroll")
     p.movieOverview= overviewOfMovie
   form(action="/first" method="get")
-  input.goBackToStart(type="submit" value="Try Again!" onclick="window.location.href='/first'")
-//add go back to beginning page
+  div.buttonArea
+    input.goBackToStart(type="submit" value="Start Over" onclick="window.location.href='/first'")
