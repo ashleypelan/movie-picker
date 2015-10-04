@@ -26,7 +26,7 @@ label {
 }
 
 .title {
-  font-size: 100px;
+  font-size: 90px;
   font-family: "Exo";
   font-style: normal;
   font-weight: 450;
@@ -52,14 +52,14 @@ label {
   color: white;
   display: inline-block;
   z-index: 100;
-  line-height: 750px;
+  line-height: 650px;
   padding-left: 16%;
   position: relative;
 }
 
 .beginButton {
   /*display: inline-block;*/
-  width: 300px;
+  width: 275px;
   height: 100px;
   background: hsl(271, 68%, 32%);
   text-align: center;
@@ -69,7 +69,7 @@ label {
   border-radius: 20px;
   border-color: hsl(300, 25%, 25%);
   position: relative;
-  top: -330px;
+  top: -310px;
   left: 38%;
   text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
   z-index: 1000;
@@ -78,23 +78,17 @@ label {
 
 .genreResults1 {
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10%;
   font-size: 24px;
 }
 
 .genreResults2 {
   display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 30%;
   font-size: 24px;
 }
 
 .genreButton {
   display: inline-block;
-  width: 300px;
+  width: 275px;
   height: 100px;
   background: hsl(271, 68%, 32%);
   text-align: center;
@@ -107,6 +101,11 @@ label {
   top: 75%;
   left: 38%;
   text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+}
+
+.actor {
+  height: 400px;
+  width: 300px;
 }
 
 .topDiv {
@@ -132,7 +131,7 @@ label {
 .clock {
   display: inline-block;
   position: absolute;
-  left: 35%;
+  left: 35.5%;
 }
 
 .left {
@@ -144,7 +143,7 @@ label {
 .right {
   display: inline-block;
   font-size: 28px;
-  padding-left: 600px;
+  padding-left: 500px;
 }
 
 .genreResults1 {
@@ -165,7 +164,7 @@ label {
 
 .timeButton {
   display: inline-block;
-  width: 300px;
+  width: 275px;
   height: 100px;
   background: hsl(271, 68%, 32%);
   text-align: center;
@@ -182,7 +181,7 @@ label {
 
 .goBackToStart {
   display: inline-block;
-  width: 300px;
+  width: 275px;
   height: 100px;
   background: hsl(271, 68%, 32%);
   text-align: center;
@@ -192,9 +191,14 @@ label {
   border-radius: 20px;
   border-color: hsl(300, 25%, 25%);
   position: absolute;
-  top: 100%;
+  top: 70%;
   left: 60%;
   text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+}
+
+.overviewMovieDiv {
+  height: auto;
+  width: auto;
 }
 
 .leftImage {
@@ -228,7 +232,7 @@ label {
   float: right;
   text-align: center;
   display: inline-block;
-  padding-right: 27%;
+  padding-right: 22.5%;
 }
 
 .popcorn {
@@ -240,24 +244,26 @@ label {
 
 .movie {
   display: inline-block;
-  padding-left: 5%;
+  padding-left: 10%;
+  height: 500px;
+  width: 400px;
 }
 
 .movieOverview {
   color: white;
   position: relative;
-  top: 100px;
+  top: 80px;
   right: 100px;
   float: right;
-  width: 50%;
+  width: 35%;
   /*height: 500px;*/
-  font-size: 24px;
-  top: -600px;
+  font-size: 22px;
+  top: -450px;
 }
 
 .actorButton {
   display: inline-block;
-  width: 300px;
+  width: 275px;
   height: 100px;
   background: hsl(300, 100%, 27%);
   text-align: center;

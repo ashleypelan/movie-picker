@@ -81,7 +81,7 @@ router.post('/second', function(req, res, next) {
 });
 
 router.get('/third', function (req, res, next) {
-  var randomNumbers = getRandomInts(1, 40, 2)
+  var randomNumbers = getRandomInts(1, 40, 2);
 
   unirest.get(baseURL + 'person/popular?page=' + randomNumbers[0] + '&api_key=' + process.env.MOVIEKEY)
   .end(function (response1) {
@@ -115,7 +115,7 @@ router.post('/third', function(req, res, next) {
   res.redirect('/result');
 });
 
-router.get('/result', function(req, res, next){
+router.get('/result', function(req, res, next) {
   var genreSelected = req.cookies.genreSelected;
   var actorSelected = req.cookies.actorSelected;
 
@@ -135,14 +135,14 @@ router.get('/result', function(req, res, next){
         arrayOfMovieDeets.push(blankObjectWithMovieDeets);
 
       }
-      var genresMatchingGenreSelectedArray = []
+      var genresMatchingGenreSelectedArray = [];
 
       for (var i = 0; i < arrayOfMovieDeets.length; i++) {
         var genre_idsArray = arrayOfMovieDeets[i].genre_ids;
         for (var j = 0; j < genre_idsArray.length; j++) {
           if (genre_idsArray[j] == genreSelected) {
 
-          genresMatchingGenreSelectedArray.push(arrayOfMovieDeets[i])
+          genresMatchingGenreSelectedArray.push(arrayOfMovieDeets[i]);
         }
       }
     }
