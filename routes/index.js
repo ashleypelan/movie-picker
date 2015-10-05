@@ -129,6 +129,9 @@ router.get('/result', function(req, res, next) {
 
     unirest.get(baseURL + 'discover/movie?with_cast=' + actorSelected + '&api_key=' + process.env.MOVIEKEY)
     .end(function (response) {
+
+
+
       var getMoviesByActor = response.body.results;
       var arrayOfMovieDeets = [];
       for (var i = 0; i < getMoviesByActor.length; i++) {
@@ -157,6 +160,19 @@ router.get('/result', function(req, res, next) {
 
     var movieSuggested = genresMatchingGenreSelectedArray[Math.floor(Math.random() * genresMatchingGenreSelectedArray.length)];
 
+    if (!movieSuggested) {
+      // handle the failure
+      res.render('fail');
+      return;
+    }
+    res.render('result', {
+                           poster : movieSuggested.poster_path,
+                           titleOfMovie : movieSuggested.title,
+                           overviewOfMovie : movieSuggested.overview
+                          });
+
+  });
+
 //add page and logic here to render a no result matches your choices page
 //add ^^^ jade page
 //fix so you can't submit before selecting a radio button on all jade pages
@@ -169,12 +185,6 @@ router.get('/result', function(req, res, next) {
 //make list area where users can add tv/movies to watch later
 //^^^ get from API/list making route thang
 
-  res.render('result', {
-                         poster : movieSuggested.poster_path,
-                         titleOfMovie : movieSuggested.title,
-                         overviewOfMovie : movieSuggested.overview
-                        });
-  });
 });
 
 router.post('/result', function(req, res, next) {
