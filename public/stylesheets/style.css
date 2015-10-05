@@ -304,7 +304,13 @@ label {
   border-radius: 20px;
   border-color: hsl(300, 25%, 25%);
   position: absolute;
-  top: 60%;
+  top: 70%;
   left: 39%;
   text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+}
+
+.sadFace {
+  height: 300px;
+  width: 300px;
+  margin-left: 38%;
 }
