@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var unirest = require('unirest');
 require('dotenv').load();
-var db = require('monk')("localhost/movies");
-var movieCollection = db.get('movies');
+// var db = require('monk')("localhost/movies");
+// var movieCollection = db.get('movies');
 var baseURL = 'http://api.themoviedb.org/3/';
 
 function getRandomInt(min, max) {
