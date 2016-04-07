@@ -18,6 +18,9 @@ app.set('view engine', 'jade');
 // var port_number = server.listen(process.env.PORT || 3000);
 // app.listen(port_number);
 
+var port = process.env.PORT || CONFIG.port;
+app.listen(port);
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
