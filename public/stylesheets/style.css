@@ -22,17 +22,14 @@ label {
   font-weight: 400;
   text-align: center;
   color: white;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  /*text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
 }
 
 .title {
   font-size: 90px;
   font-family: "Exo";
-  font-style: normal;
-  font-weight: 450;
   text-align: center;
   color: white;
-  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
 }
 
 .informational {
@@ -49,13 +46,11 @@ label {
   background: #F5D547;
   text-align: center;
   color: white;
-  font-weight: bold;
   font-size: 50px;
-  border-radius: 20px;
-  border-color: hsl(300, 25%, 25%);
   position: relative;
   left: 40%;
-  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+  cursor: pointer;
+  top: 200px;
 }
 
 .genreResults1 {
@@ -75,14 +70,11 @@ label {
   background: #F5D547;
   text-align: center;
   color: white;
-  font-weight: bold;
   font-size: 50px;
-  border-radius: 20px;
-  border-color: hsl(300, 25%, 25%);
   position: absolute;
   top: 83%;
   left: 41%;
-  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+  cursor: pointer;
 }
 
 .actor {
@@ -130,14 +122,11 @@ label {
   background: #F5D547;
   text-align: center;
   color: white;
-  font-weight: bold;
   font-size: 50px;
-  border-radius: 20px;
-  border-color: hsl(300, 25%, 25%);
   position: absolute;
   top: 83%;
   left: 41%;
-  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+  cursor: pointer;
 }
 
 .goBackToStart {
@@ -147,14 +136,11 @@ label {
   background: #F5D547;
   text-align: center;
   color: white;
-  font-weight: bold;
   font-size: 50px;
-  border-radius: 20px;
-  border-color: hsl(300, 25%, 25%);
   position: absolute;
   top: 70%;
   left: 60%;
-  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+  cursor: pointer;
 }
 
 .overviewMovieDiv {
@@ -229,14 +215,11 @@ label {
   background: #F5D547;
   text-align: center;
   color: white;
-  font-weight: bold;
   font-size: 40px;
-  border-radius: 20px;
-  border-color: hsl(300, 25%, 25%);
   position: absolute;
   top: 86%;
   left: 41%;
-  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+  cursor: pointer;
 }
 
 .reroll {
@@ -244,13 +227,11 @@ label {
   margin-top: -580px;
   margin-right: 25px;
   background: #F5D547;
-  border-radius: 9px;
-  border-color: hsl(300, 25%, 25%);
   color: white;
   height: 35px;
   width: 90px;
-  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .errorButton {
@@ -260,14 +241,11 @@ label {
   background: #F5D547;
   text-align: center;
   color: white;
-  font-weight: bold;
   font-size: 50px;
-  border-radius: 20px;
-  border-color: hsl(300, 25%, 25%);
   position: absolute;
   top: 70%;
   left: 40%;
-  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 3px 0 #000, 2px 2px 0 #000;
+  cursor: pointer;
 }
 
 .sadFace {
