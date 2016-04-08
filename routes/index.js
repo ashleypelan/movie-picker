@@ -60,7 +60,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/first', function(req, res, next) {
-  unirest.get(baseURL + 'movie/100?api_key=' + process.env.MOVIEKEY)
+  unirest.get(baseURL + 'movies/100?api_key=' + process.env.MOVIEKEY)
   .end(function (response) {
   res.render('first');
   });
@@ -72,7 +72,7 @@ router.post('/first', function(req, res, next) {
 });
 
 router.get('/second', function(req, res, next) {
-  unirest.get(baseURL + 'genre/movie/list?api_key=' + process.env.MOVIEKEY)
+  unirest.get(baseURL + 'genre/movies/list?api_key=' + process.env.MOVIEKEY)
   .end(function (response) {
     var genres = response.body.genres;
     var result = getRandomValuesFromArray(genres, 2);
@@ -128,7 +128,7 @@ router.get('/result', function(req, res, next) {
   var genreSelected = req.cookies.genreSelected;
   var actorSelected = req.cookies.actorSelected;
 
-    unirest.get(baseURL + 'discover/movie?with_cast=' + actorSelected + '&api_key=' + process.env.MOVIEKEY)
+    unirest.get(baseURL + 'discover/movies?with_cast=' + actorSelected + '&api_key=' + process.env.MOVIEKEY)
     .end(function (response) {
 
 
