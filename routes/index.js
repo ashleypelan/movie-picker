@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
+require('dotenv').config();
 var unirest = require('unirest');
-require('dotenv').load();
+// require('dotenv').load();
 // var db = require('monk')("localhost/movies");
 // var movieCollection = db.get('movies');
 var baseURL = 'http://api.themoviedb.org/3/';
