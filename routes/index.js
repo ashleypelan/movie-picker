@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-require('dotenv').config();
+// require('dotenv').config();
 var unirest = require('unirest');
-// require('dotenv').load();
+require('dotenv').load();
 // var db = require('monk')("localhost/movies");
 // var movieCollection = db.get('movies');
 var baseURL = 'http://api.themoviedb.org/3/';
@@ -67,11 +67,14 @@ router.get('/first', function(req, res, next) {
 });
 
 router.post('/first', function(req, res, next) {
+  console.log("this is right before cookie");
   res.cookie('runtime', req.body.runtime);
+  console.log("this is right before redirect");
   res.redirect('/second');
 });
 
 router.get('/second', function(req, res, next) {
+  console.log("this is on the second page");
   unirest.get(baseURL + 'genre/movie/list?api_key=' + process.env.MOVIEKEY)
   .end(function (response) {
     var genres = response.body.genres;
