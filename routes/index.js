@@ -56,7 +56,6 @@ function getRandomValuesFromArray(array, numberOfValues) {
 
 router.get('/', function(req, res, next) {
   res.render('index');
-
 });
 
 router.get('/first', function(req, res, next) {
@@ -133,8 +132,6 @@ router.get('/result', function(req, res, next) {
 
     unirest.get(baseURL + 'discover/movie?with_cast=' + actorSelected + '&api_key=' + process.env.MOVIEKEY)
     .end(function (response) {
-
-
 
       var getMoviesByActor = response.body.results;
       var arrayOfMovieDeets = [];
